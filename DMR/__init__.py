@@ -133,6 +133,7 @@ class DanmakuRender():
         elif type == 'split':
             fp = msg['msg']
             logging.info(f'分片 {fp} 录制完成.')
+            os.system(f"cp /content/DanmakuRender/直播回放/{fp} /content/drive/MyDrive/{fp}")
 
             if replay_config.get('danmaku') and replay_config.get('auto_render') and replay_config.get('video'):
                 logging.info(f'添加分片 {fp} 至渲染队列.')
