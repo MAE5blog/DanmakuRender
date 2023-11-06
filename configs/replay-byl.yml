@@ -44,7 +44,9 @@ vid_format: flv
 flow_cdn: ~
 
 # 高级视频录制参数，具体可用选项请参考文档
-advanced_video_args: ~
+advanced_video_args:
+  # 开播检测间隔，每隔这样一段时间检测一次是否开播
+  start_check_interval: 10
 
 # 以下是弹幕录制参数
 
