@@ -100,7 +100,7 @@ def main():
     if inp:
         task_idx = [int(x) for x in inp.split(' ')]
 
-    render = Render(pipe=None, debug=True, **config.render_config)
+    render = Render(pipe=None, debug=False, **config.render_config)
     render.start()
     for idx in task_idx:
         render.add(**tasks[idx])
