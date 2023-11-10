@@ -2,7 +2,7 @@
 # 配置文件编写请参考 https://github.com/SmallPeaches/DanmakuRender 
 
 # 直播间链接
-url: 'https://www.douyu.com/290935'
+url: 'https://www.douyu.com/74751'
 
 # 录制输出文件夹，设置为空则使用主播名称作为文件夹
 output_dir: ./直播回放
