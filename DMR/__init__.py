@@ -10,6 +10,7 @@ from .Uploader import Uploader
 from .Render import Render
 from .Downloader import Downloader
 from .Config import Config
+from datetime import datetime
 
 
 class DanmakuRender():
@@ -132,9 +133,15 @@ class DanmakuRender():
 
         elif type == 'split':
             fp = msg['msg']
+            # 获取当前的时间
+            now = datetime.now()            
+            # 格式化为"202311/20231111"的形式
+            formatted_date = now.strftime("%Y%m/%Y%m%d")
             logging.info(f'分片 {fp} 录制完成.')
-            os.system(f"cp {fp[:-3]}ass /content/drive/MyDrive/直播回放/{fp.split('/')[-1][:-3]}ass")
-            os.system(f"cp {fp} /content/drive/MyDrive/直播回放/{fp.split('/')[-1]}")
+            # os.system(f"cp {fp[:-3]}ass /content/drive/MyDrive/直播回放/{fp.split('/')[-1][:-3]}ass")
+            # os.system(f"cp {fp} /content/drive/MyDrive/直播回放/{fp.split('/')[-1]}")
+            os.system(f"mkdir -p /content/onedrive/不要脸录播/{formatted_date}/ && cp {fp[:-3]}ass /content/onedrive/不要脸录播/{formatted_date}/{fp.split('/')[-1][:-3]}ass")
+            os.system(f"cp {fp} /content/onedrive/不要脸录播/{formatted_date}/{fp.split('/')[-1]}")
 
             if replay_config.get('danmaku') and replay_config.get('auto_render') and replay_config.get('video'):
                 logging.info(f'添加分片 {fp} 至渲染队列.')
